@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
+
    public function index(): Response
     {
-
+        $productos = Producto::paginate(3);
+        return response( view('admin.producto.productos', compact('productos')));
     }
 
 
@@ -61,8 +65,10 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy( $id): RedirectResponse
     {
-        //
+        $producto = Producto::find($id);
+        $producto->delete();
+        return redirect()->route('admin.productos')->with('Sucesso','Producto eliminado com sucesso..!');
     }
 }

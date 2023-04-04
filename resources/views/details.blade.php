@@ -4,26 +4,26 @@
 
 @section('Conteudo_pagina')
 
-    <div class="row container">
+    <div class="container mx-auto">
         <br>
         <br>
         <br>
-        <div class="col s12 m6">
-            <img src="{{ $producto->imagem }}" alt="" srcset="">
+        <div class="flex flex-grow justify-between">
+            <div class="ml-3 bg-red-500">
+                <img src="{{ $producto->imagem }}" alt="" srcset="">
+            </div>
+            <div class="w-1/2 p-4">
+                <h4 class="font-bold text-2xl text-gray-700 py-3">{{ $producto->name }}</h4>
+                <h5 class="text-xl text-gray-700 py-3"><strong>R$ {{ number_format($producto->preco, 2, ',', '.') }} </h5>
+                <p class="text-gray-400 py-3">{{ $producto->descricao }}</p>
+                <p class="text-gray-400 py-3">Postado por :<strong> {{ $producto->getUser->firstname }}</p>
+                <p class="text-gray-400 py-3">Categoria : <strong>{{ $producto->getCategoria->nome }}</p>
+
+                <button class="cursor-pointer px-6 py-3 bg-red-500 text-white uppercase text-xs">Comprar</button>
+            </div>
+
         </div>
-
-        <div class="col s12 m6">
-            <h4>{{ $producto->name }}</h4>
-            <h5><strong>R$ {{ number_format($producto->preco, 2, ',', '.') }} </h5>
-            <p>{{ $producto->descricao }}</p>
-            <p>Postado por :<strong> {{ $producto->getUser->firstname }}</p>
-            <p>Categoria : <strong>{{ $producto->getCategoria->nome }}</p>
-
-            <button class="btn orange btn-large">Comprar</button>
-        </div>
-
     </div>
-
 @endsection
 
 @push('style')
