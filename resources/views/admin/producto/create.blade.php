@@ -22,7 +22,6 @@
                   </button>
               </div>
               <div class="relative p-4 w-full">
-
                   <form action="">
                       <div class="grid grid-cols-2 gap-4 w-full ">
                           <div class="relative mb-6" data-te-input-wrapper-init>
@@ -61,3 +60,6 @@
       </div>
   </div>
   <!-- Modal -->
+
+
+
